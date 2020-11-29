@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {ScullyRoutesService} from "@scullyio/ng-lib";
-import {Observable} from "rxjs";
+import {BehaviorSubject} from "rxjs";
+import {map} from "rxjs/operators";
 
 export interface ScullyRoute {
   route: string;
@@ -18,17 +19,16 @@ export interface ScullyRoute {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  links$: Observable<ScullyRoute[]> = this.scully.available$;
+  blogLinks$: BehaviorSubject<ScullyRoute[]> = new BehaviorSubject<ScullyRoute[]>([]);
 
-  constructor(private scully: ScullyRoutesService) {}
-
-  ngOnInit() {
-    // debug current pages
-    this.links$.subscribe((links) => {
-      console.log(links);
-    });
+  constructor(private scully: ScullyRoutesService) {
+    this.scully.available$
+      .pipe(
+        map(links => links.filter(link => link?.title?.length))
+      )
+      .subscribe((links) => this.blogLinks$.next(links));
   }
 
 }
