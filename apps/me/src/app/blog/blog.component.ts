@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'bej-blog',
+  selector: 'ubu-blog',
   template: `<scully-content></scully-content>`
 })
 export class BlogComponent {}

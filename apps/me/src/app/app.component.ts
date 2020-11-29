@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'bej-root',
+  selector: 'ubu-root',
   template: ` <router-outlet></router-outlet> `,
 })
 export class AppComponent {}

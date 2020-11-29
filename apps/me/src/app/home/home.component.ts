@@ -14,7 +14,7 @@ export interface ScullyRoute {
 }
 
 @Component({
-  selector: 'bej-home',
+  selector: 'ubu-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
