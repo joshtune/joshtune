@@ -11,6 +11,13 @@
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
+    "ci:build": "nx build --prod",
+    "ci:test": "nx test",
+    "deploy": "rm -rf dist && npm run scully:build && ./deploy.sh",
+    "scully:serve": "scully serve",
+    "scully:build": "npm run ci:build && npm run scully",
+    "scully": "scully --scanRoutes",
+    "scully:watch": "scully --watch",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -26,10 +33,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "build:prod": "nx build --prod",
-    "scully": "scully --scanRoutes",
-    "scully:watch": "scully --watch",
-    "scully:serve": "scully serve"
+    "build:prod": "nx build --prod"
   },
   "private": true,
   "dependencies": {
