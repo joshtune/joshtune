@@ -1,4 +1,40 @@
-.eye {
-  height: 100vh;
+@import "../../scss/variables";
+$main-color: black;
+$off-color: white;
+
+.full-page {
+  min-height: 100vh;
   width: 100vw;
+
+  line-height: 40px;
+  background: $very-dark-gray;
+  color: $light-gray;
+}
+
+.name {
+  font-family: 'LuckiestGuy';
+  font-size: 60px;
+  color: $very-light-gray;
+  .first-letter {
+    font-size: 70px;
+  }
+}
+
+.job-title {
+  color: $orange;
+  font-size: 17px;
+  padding: 0 3px;
+}
+
+.btn {
+  color: $very-light-gray;
+  &:hover {
+    color: $light-gray;
+  }
+}
+
+.avatar,
+.logo {
+  height: 170px;
+  border-radius: 50%;
 }

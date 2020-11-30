@@ -2,6 +2,7 @@
 title: 'Another Angular tutorial'
 description: 'blog description'
 published: true
+tags: ['angular']
 ---
 
 # Another Angular tutorial
@@ -13,3 +14,11 @@ const test = (students) => {
     });
 }
 ```
+
+Here is another content
+Here is another content
+Here is another content
+Here is another content
+Here is another content
+
+
