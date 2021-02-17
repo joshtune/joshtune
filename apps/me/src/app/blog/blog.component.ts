@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ubu-blog',
-  template: `<scully-content></scully-content>`,
+  template: `
+    <section>
+      <div class="container">
+        <scully-content></scully-content>
+      </div>
+    </section>
+  `,
 })
 export class BlogComponent {}

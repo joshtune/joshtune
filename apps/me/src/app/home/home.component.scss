@@ -1,4 +1,4 @@
-@import "../../scss/variables";
+@import '../../scss/variables';
 $main-color: black;
 $off-color: white;
 
@@ -7,8 +7,6 @@ $off-color: white;
   width: 100vw;
 
   line-height: 40px;
-  background: $very-dark-gray;
-  color: $light-gray;
 }
 
 .name {

@@ -1,6 +1,14 @@
-@import "scss/fonts";
-html, body {
+@import 'scss/fonts';
+@import 'scss/variables';
+
+html,
+body {
   margin: 0;
   padding: 0;
+  background: $very-dark-gray;
+  color: $light-gray;
 }
 
+.container {
+  max-width: 960px;
+}

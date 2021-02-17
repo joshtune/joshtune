@@ -7,7 +7,11 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, ScullyLibModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ScullyLibModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
