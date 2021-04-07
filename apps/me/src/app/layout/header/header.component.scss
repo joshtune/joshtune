@@ -1,0 +1,10 @@
+@import '../../../scss/jt_theme/jt_theme';
+
+.name {
+  font-family: 'LuckiestGuy', serif;
+  font-size: 40px;
+  color: $green;
+  .first-letter {
+    font-size: 50px;
+  }
+}

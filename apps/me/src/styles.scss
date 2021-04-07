@@ -1,14 +1,2 @@
-@import 'scss/fonts';
-@import 'scss/variables';
+@import 'scss/jt_theme/jt_theme';
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  background: $very-dark-gray;
-  color: $light-gray;
-}
-
-.container {
-  max-width: 960px;
-}

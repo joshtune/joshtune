@@ -1,32 +1,44 @@
-import { Component } from '@angular/core';
-import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { AfterViewChecked, Component } from '@angular/core';
+import { ScullyRoute, ScullyRoutesService } from '@scullyio/ng-lib';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-export interface ScullyRoute {
-  route: string;
-  title?: string;
-  slugs?: string[];
-  published?: boolean;
-  slug?: string;
-  sourceFile?: string;
-  lang?: string;
-  [prop: string]: any;
-}
+import { HighlightService } from '../shared/services/highlight.service';
 
 @Component({
   selector: 'ubu-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  template: `
+    <!--    <section class="d-flex justify-content-center align-items-center">-->
+    <!--      <div class="container">-->
+    <!--        <ubu-whoami></ubu-whoami>-->
+    <!--      </div>-->
+    <!--    </section>-->
+
+    <div class="container">
+      <ubu-header></ubu-header>
+      <ubu-blog-list></ubu-blog-list>
+      <ubu-footer></ubu-footer>
+    </div>
+
+  `,
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewChecked {
   blogLinks$: BehaviorSubject<ScullyRoute[]> = new BehaviorSubject<
     ScullyRoute[]
   >([]);
 
-  constructor(private scully: ScullyRoutesService) {
+  constructor(
+    private scully: ScullyRoutesService,
+    private highLightService: HighlightService
+  ) {
     this.scully.available$
       .pipe(map((links) => links.filter((link) => link?.title?.length)))
-      .subscribe((links) => this.blogLinks$.next(links));
+      .subscribe((links) => {
+        console.log(links);
+        this.blogLinks$.next(links);
+      });
+  }
+
+  ngAfterViewChecked() {
+    this.highLightService.highlightAll();
   }
 }

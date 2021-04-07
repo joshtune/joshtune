@@ -2,7 +2,10 @@
   <div class="container">
     <h1>Blog</h1>
 
-    <div *ngFor="let link of links$ | async" class="d-flex justify-content-between">
+    <div
+      *ngFor="let link of blogLinks$ | async"
+      class="d-flex justify-content-between"
+    >
       <div class="title">image here</div>
       <div class="title">
         <a [routerLink]="link.route">

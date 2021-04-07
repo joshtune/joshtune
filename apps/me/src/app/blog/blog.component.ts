@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewChecked, Component } from '@angular/core';
+import { HighlightService } from '../shared/services/highlight.service';
 
 @Component({
   selector: 'ubu-blog',
@@ -10,4 +11,10 @@ import { Component } from '@angular/core';
     </section>
   `,
 })
-export class BlogComponent {}
+export class BlogComponent implements AfterViewChecked {
+  constructor(private highLightService: HighlightService) {}
+
+  ngAfterViewChecked() {
+    this.highLightService.highlightAll();
+  }
+}

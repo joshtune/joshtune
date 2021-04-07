@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BlogComponent } from './blog.component';
-import { HomeComponent } from './home/home.component';
+import { BlogHomeComponent } from './blog-home/blog-home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: BlogHomeComponent,
   },
   {
     path: ':slug',
