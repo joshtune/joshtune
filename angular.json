@@ -36,7 +36,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -54,7 +53,8 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -76,7 +76,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/me/src/**/*.ts"]
+            "lintFilePatterns": ["apps/me/src/**/*.ts", "apps/me/src/**/*.html"]
           }
         },
         "test": {
@@ -84,7 +84,8 @@
           "options": {
             "jestConfig": "apps/me/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/apps/me"]
         }
       }
     },
