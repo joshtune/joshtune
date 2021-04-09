@@ -1,5 +1,4 @@
 @import 'fonts';
-@import '~bootstrap';
 
 // COLORS
 $very-light-gray: #dddddd;
@@ -22,9 +21,10 @@ $orange: #ffcb6b;
 $light-orange: #ffe082;
 
 $theme-colors: (
-  "primary": $pink,
-  "danger": $strong-orange
+  'green': $green
 );
+
+@import "~bootstrap";
 
 pre {
   color: $light-gray;
@@ -34,7 +34,7 @@ body {
   margin: 0;
   padding: 0;
   background: $very-dark-gray;
-  color: $light-gray;
+  color: $green;
 }
 
 .container {
