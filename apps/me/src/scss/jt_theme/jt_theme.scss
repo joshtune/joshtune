@@ -21,10 +21,10 @@ $orange: #ffcb6b;
 $light-orange: #ffe082;
 
 $theme-colors: (
-  'green': $green
+  'green': $green,
 );
 
-@import "~bootstrap";
+@import '~bootstrap';
 
 pre {
   color: $light-gray;

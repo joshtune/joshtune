@@ -8,9 +8,8 @@ describe('BlogThumbItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BlogThumbItemComponent ]
-    })
-    .compileComponents();
+      declarations: [BlogThumbItemComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

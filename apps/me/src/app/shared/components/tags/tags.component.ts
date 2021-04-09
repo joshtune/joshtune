@@ -1,17 +1,14 @@
 import { Component } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {ScullyPostService} from "../../services/scully-post.service";
+import { BehaviorSubject } from 'rxjs';
+import { ScullyPostService } from '../../services/scully-post.service';
 
 @Component({
   selector: 'ubu-tags',
   templateUrl: './tags.component.html',
-  styleUrls: ['./tags.component.scss']
+  styleUrls: ['./tags.component.scss'],
 })
 export class TagsComponent {
-
-  tags$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(
-    []
-  );
+  tags$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
   constructor(private scully: ScullyPostService) {
     this.scully.getTags().subscribe((tags) => {
@@ -19,5 +16,4 @@ export class TagsComponent {
       this.tags$.next(tags);
     });
   }
-
 }

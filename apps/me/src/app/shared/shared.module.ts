@@ -8,7 +8,7 @@ import { BlogTextItemComponent } from './components/blog-text-item/blog-text-ite
 import { BlogFeaturedListComponent } from './components/blog-featured-list/blog-featured-list.component';
 import { TagsComponent } from './components/tags/tags.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BlogListComponent } from './components/blog-list/blog-list.component';
 
 @NgModule({
@@ -34,10 +34,6 @@ import { BlogListComponent } from './components/blog-list/blog-list.component';
     BlogListComponent,
   ],
   providers: [HighlightService],
-  imports: [
-    CommonModule,
-    NgbModule,
-    RouterModule,
-  ],
+  imports: [CommonModule, NgbModule, RouterModule],
 })
 export class SharedModule {}

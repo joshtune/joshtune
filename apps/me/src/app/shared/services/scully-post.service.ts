@@ -78,7 +78,11 @@ export class ScullyPostService {
     return this.getAll().pipe(
       map((posts) => posts.map((post) => post.categories)),
       map((categories) => [].concat(...categories)),
-      map(categories => categories.filter((item, index) => categories.indexOf(item) === index).sort())
+      map((categories) =>
+        categories
+          .filter((item, index) => categories.indexOf(item) === index)
+          .sort()
+      )
     );
   }
 
@@ -86,7 +90,9 @@ export class ScullyPostService {
     return this.getAll().pipe(
       map((posts) => posts.map((post) => post.tags)),
       map((tags) => [].concat(...tags)),
-      map(tags => tags.filter((item, index) => tags.indexOf(item) === index).sort())
+      map((tags) =>
+        tags.filter((item, index) => tags.indexOf(item) === index).sort()
+      )
     );
   }
 }

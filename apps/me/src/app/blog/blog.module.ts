@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { BlogRoutingModule } from './blog-routing.module';
 import { BlogComponent } from './blog.component';
-import {LayoutModule} from "../layout/layout.module";
-import {SharedModule} from "../shared/shared.module";
+import { LayoutModule } from '../layout/layout.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [BlogComponent],
@@ -13,7 +13,7 @@ import {SharedModule} from "../shared/shared.module";
     BlogRoutingModule,
     ScullyLibModule,
     LayoutModule,
-    SharedModule
+    SharedModule,
   ],
 })
 export class BlogModule {}

@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {ScullyPost} from "../../models/scully-post.interface";
-import {ScullyPostService} from "../../services/scully-post.service";
+import { BehaviorSubject } from 'rxjs';
+import { ScullyPost } from '../../models/scully-post.interface';
+import { ScullyPostService } from '../../services/scully-post.service';
 
 @Component({
   selector: 'ubu-blog-list',
   templateUrl: './blog-list.component.html',
-  styleUrls: ['./blog-list.component.scss']
+  styleUrls: ['./blog-list.component.scss'],
 })
 export class BlogListComponent {
-
   blogPosts$: BehaviorSubject<ScullyPost[]> = new BehaviorSubject<ScullyPost[]>(
     []
   );
@@ -20,6 +19,4 @@ export class BlogListComponent {
       this.blogPosts$.next(post);
     });
   }
-
-
 }
