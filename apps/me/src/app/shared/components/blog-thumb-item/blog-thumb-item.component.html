@@ -1,0 +1,9 @@
+
+<div class="card text-white bg-dark">
+  <img [src]="post.thumbnail" class="card-img-top" alt="alternate text">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.description }}</p>
+    <a [routerLink]="post.route" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

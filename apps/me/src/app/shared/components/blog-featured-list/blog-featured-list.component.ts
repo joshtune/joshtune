@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {ScullyPost} from "../../models/scully-post.interface";
 import {ScullyPostService} from "../../services/scully-post.service";
 
 @Component({
-  selector: 'ubu-blog-list',
-  templateUrl: './blog-list.component.html',
-  styleUrls: ['./blog-list.component.scss']
+  selector: 'ubu-blog-featured-list',
+  templateUrl: './blog-featured-list.component.html',
+  styleUrls: ['./blog-featured-list.component.scss']
 })
-export class BlogListComponent {
+export class BlogFeaturedListComponent implements OnInit {
 
   blogPosts$: BehaviorSubject<ScullyPost[]> = new BehaviorSubject<ScullyPost[]>(
     []
@@ -21,5 +21,7 @@ export class BlogListComponent {
     });
   }
 
+  ngOnInit(): void {
+  }
 
 }

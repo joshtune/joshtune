@@ -1,0 +1,11 @@
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let post of blogPosts$ | async">
+    <div class="carousel-image">
+      <img [src]="post.thumbnail" alt="featured thumbnail" class="w-100">
+    </div>
+    <div class="carousel-caption">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.description }}</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
