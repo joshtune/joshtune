@@ -3,8 +3,13 @@
 .name {
   font-family: 'LuckiestGuy', serif;
   font-size: 40px;
+  text-decoration: none;
   color: $green;
   .first-letter {
     font-size: 50px;
+  }
+  &:hover {
+    color: $green;
+    text-decoration: none;
   }
 }

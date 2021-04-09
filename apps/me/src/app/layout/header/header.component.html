@@ -1,16 +1,21 @@
-<section class="container-fluid">
+<section class="container mt-4 mb-4">
   <div class="d-flex justify-content-between align-items-center">
     <div class="d-flex justify-content-between align-items-center">
-      <div class="name">
+      <a class="name" [routerLink]="'/'">
         <span class="first-letter">J</span>
         <span>osh</span>
         <span class="first-letter">T</span>
         <span>une</span>
+      </a>
+      <div class="ml-2 d-none d-md-inline d-lg-inline d-xl-inline text-white">
+        FullStack Web Developer
       </div>
-      <div class="ml-2 d-none d-md-inline d-lg-inline d-xl-inline">FullStack Web Developer</div>
     </div>
     <div class="d-flex align-items-center">
-      <button class="btn btn-sm text-white d-lg-none d-xl-none">
+      <button class="btn btn-sm text-green">
+        <i class="fas fa-search"></i>
+      </button>
+      <button class="btn btn-sm text-green d-lg-none d-xl-none">
         <i class="fas fa-bars"></i>
       </button>
     </div>
