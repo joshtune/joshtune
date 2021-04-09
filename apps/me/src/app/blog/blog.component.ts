@@ -4,11 +4,11 @@ import { HighlightService } from '../shared/services/highlight.service';
 @Component({
   selector: 'ubu-blog',
   template: `
-    <section>
-      <div class="container">
-        <scully-content></scully-content>
-      </div>
-    </section>
+    <ubu-header></ubu-header>
+    <div class="container mt-4">
+      <scully-content></scully-content>
+    </div>
+    <ubu-footer></ubu-footer>
   `,
 })
 export class BlogComponent implements AfterViewChecked {
