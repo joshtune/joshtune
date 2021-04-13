@@ -3,7 +3,10 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { AppModule } from '../app.module';
-import { APP_BASE_HREF } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
+import { LayoutModule } from '../layout/layout.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import '@angular/localize/init';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -13,8 +16,13 @@ describe('HomeComponent', () => {
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [HomeComponent],
-        providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
-        imports: [AppModule, ScullyLibModule],
+        imports: [
+          AppModule,
+          ScullyLibModule,
+          SharedModule,
+          LayoutModule,
+          RouterTestingModule,
+        ],
       }).compileComponents();
     })
   );

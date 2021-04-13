@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
-import { flatMap, map, pluck } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { ScullyPost } from '../models/scully-post.interface';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class ScullyPostService {
 
   public getAll(): Observable<ScullyPost[]> {
     return this.scully.available$.pipe(
-      map((links) => links.filter((link) => link?.title?.length))
+      map((posts: ScullyPost[]) => posts.filter((post) => post?.title?.length))
     );
   }
 
@@ -27,7 +27,7 @@ export class ScullyPostService {
       map((posts) =>
         posts.filter((post) => {
           for (let i = 0; i < categories.length; ++i) {
-            let searchCat = categories[i];
+            const searchCat = categories[i];
             if (post.categories.indexOf(searchCat) !== -1) return true;
           }
           return false;
@@ -41,7 +41,7 @@ export class ScullyPostService {
       map((posts) =>
         posts.filter((post) => {
           for (let i = 0; i < tags.length; ++i) {
-            let searchTag = tags[i];
+            const searchTag = tags[i];
             if (post.tags.indexOf(searchTag) !== -1) return true;
           }
           return false;
@@ -77,22 +77,14 @@ export class ScullyPostService {
   public getCategories(): Observable<string[]> {
     return this.getAll().pipe(
       map((posts) => posts.map((post) => post.categories)),
-      map((categories) => [].concat(...categories)),
-      map((categories) =>
-        categories
-          .filter((item, index) => categories.indexOf(item) === index)
-          .sort()
-      )
+      map((categories) => [].concat(...categories))
     );
   }
 
   public getTags(): Observable<string[]> {
     return this.getAll().pipe(
       map((posts) => posts.map((post) => post.tags)),
-      map((tags) => [].concat(...tags)),
-      map((tags) =>
-        tags.filter((item, index) => tags.indexOf(item) === index).sort()
-      )
+      map((tags) => [].concat(...tags))
     );
   }
 }

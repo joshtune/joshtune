@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ScullyPost } from '../../models/scully-post.interface';
 import { ScullyPostService } from '../../services/scully-post.service';
@@ -8,7 +8,7 @@ import { ScullyPostService } from '../../services/scully-post.service';
   templateUrl: './blog-featured-list.component.html',
   styleUrls: ['./blog-featured-list.component.scss'],
 })
-export class BlogFeaturedListComponent implements OnInit {
+export class BlogFeaturedListComponent {
   blogPosts$: BehaviorSubject<ScullyPost[]> = new BehaviorSubject<ScullyPost[]>(
     []
   );
@@ -19,6 +19,4 @@ export class BlogFeaturedListComponent implements OnInit {
       this.blogPosts$.next(post);
     });
   }
-
-  ngOnInit(): void {}
 }

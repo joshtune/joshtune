@@ -1,22 +1,26 @@
-import {
-  fakeAsync,
-  flushMicrotasks,
-  TestBed,
-  tick,
-} from '@angular/core/testing';
+import { fakeAsync, flush, TestBed } from '@angular/core/testing';
 
 import { ScullyPostService } from './scully-post.service';
-import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { ScullyLibModule, ScullyRoutesService } from '@scullyio/ng-lib';
 import { of } from 'rxjs';
 import { ScullyPost } from '../models/scully-post.interface';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ScullyPostService', () => {
   let service: ScullyPostService;
   let scullyService: ScullyRoutesService;
-  let samplePosts: ScullyPost[] = [
+  const samplePosts: ScullyPost[] = [
     {
+      author: {
+        avatar: '',
+        name: 'Josh Tune',
+        title: 'FullStack Web Developer',
+      },
+      date: '2020-03-22',
+      description: 'this is the description',
+      featured: true,
+      thumbnail: '',
       route: '/blog/2020-05-22-javascript-coding-best-practice',
       title: 'JavaScript Coding Best Practice',
       published: true,
@@ -24,6 +28,15 @@ describe('ScullyPostService', () => {
       tags: ['javascript'],
     },
     {
+      author: {
+        avatar: '',
+        name: 'Josh Tune',
+        title: 'FullStack Web Developer',
+      },
+      date: '2020-04-22',
+      description: 'this is the description',
+      featured: false,
+      thumbnail: '',
       route: '/blog/2020-04-02-ruby-coding-best-practice',
       title: 'Ruby Coding Best Practice',
       published: true,
@@ -31,6 +44,15 @@ describe('ScullyPostService', () => {
       tags: ['ruby', 'hello'],
     },
     {
+      author: {
+        avatar: '',
+        name: 'Josh Tune',
+        title: 'FullStack Web Developer',
+      },
+      date: '2020-03-01',
+      description: 'this is the description',
+      featured: false,
+      thumbnail: '',
       route: '/blog/2020-04-02-angular-coding-best-practice',
       title: 'Angular Coding Best Practice, Hello',
       published: false,
@@ -41,7 +63,7 @@ describe('ScullyPostService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [CommonModule, RouterModule.forRoot([]), ScullyLibModule],
+      imports: [CommonModule, RouterTestingModule, ScullyLibModule],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' },
         {
@@ -67,6 +89,7 @@ describe('ScullyPostService', () => {
         .subscribe((response: ScullyPost[]) =>
           expect(response.length).toEqual(3)
         );
+      flush();
     }));
   });
 
@@ -77,6 +100,7 @@ describe('ScullyPostService', () => {
         .subscribe((response: ScullyPost[]) =>
           expect(response.length).toEqual(2)
         );
+      flush();
     }));
   });
 
@@ -87,6 +111,7 @@ describe('ScullyPostService', () => {
         .subscribe((response: ScullyPost[]) =>
           expect(response.length).toEqual(2)
         );
+      flush();
     }));
   });
 
@@ -97,6 +122,7 @@ describe('ScullyPostService', () => {
         .subscribe((response: ScullyPost[]) =>
           expect(response.length).toEqual(1)
         );
+      flush();
     }));
   });
 
@@ -107,6 +133,7 @@ describe('ScullyPostService', () => {
         .subscribe((response: ScullyPost[]) =>
           expect(response.length).toEqual(3)
         );
+      flush();
     }));
   });
 
@@ -115,6 +142,7 @@ describe('ScullyPostService', () => {
       service.getCategories().subscribe((response: string[]) => {
         expect(response).toEqual(['tips', 'hello', 'patterns', 'tips']);
       });
+      flush();
     }));
   });
 
@@ -123,6 +151,7 @@ describe('ScullyPostService', () => {
       service.getTags().subscribe((response: string[]) => {
         expect(response).toEqual(['javascript', 'ruby', 'hello', 'angular']);
       });
+      flush();
     }));
   });
 });
