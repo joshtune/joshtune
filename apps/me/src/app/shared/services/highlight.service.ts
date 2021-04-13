@@ -16,7 +16,6 @@ import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-sass';
 import 'prismjs/components/prism-scss';
 
-// @ts-nocheck
 declare let Prism: any;
 
 @Injectable({
